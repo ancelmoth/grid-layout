@@ -1,0 +1,43 @@
+.container{
+    background: #333;
+    display: grid;
+    padding: 15px;
+   
+    grid-template-areas:
+    'header header header header'
+    'sidebar content content content'
+    'footer footer footer footer';
+    
+}
+
+.container div{
+    background: #b91818;
+    /* border: 1px solid red; */
+    gap: 5px;
+   
+}
+
+#header{
+    grid-area: header;
+    height: 20vh;
+    background: rgb(173, 113, 230);
+}
+
+
+#sidebar{
+    grid-area: sidebar;
+    height: 50vh;
+    background: blueviolet;
+}
+
+#content{
+    grid-area: content;
+    height: 50vh;
+    background: rgb(43, 226, 113);
+}
+
+#footer{
+    grid-area: footer;
+    background: rgb(66, 56, 75);
+}
+
