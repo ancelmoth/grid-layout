@@ -1,43 +1,120 @@
-.container{
-    background: #333;
+body, html{
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(to bottom right, darkgrey, darkolivegreen);
+    transition: background-color 0.5s;
+}
+
+.page{
     display: grid;
-    padding: 15px;
-   
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1fr 1fr 0.8fr ;
     grid-template-areas:
-    'header header header header'
-    'sidebar content content content'
-    'footer footer footer footer';
-    
+             "navbar navbar navbar navbar"
+             "sidebar main main main"
+             "sidebar section1 section2 section3"
+             "sidebar section4 section4 section4"
+             "footer footer footer footer";
+             gap: 20px;
+             height: 100%;
+             animation: fadeIn 1s ease-in-out;
+}
+    nav, main, #sidebar, #section1, #section2,#section3, #section4, footer{
+    border-radius: 10px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+    nav:hover, main:hover, #sidebar:hover, #section1:hover, #section2:hover, #section3:hover, #section4:hover, footer:hover{
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+nav{
+    grid-area: navbar;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: #ccc;
 }
 
-.container div{
-    background: #b91818;
-    /* border: 1px solid red; */
-    gap: 5px;
-   
+main{
+    grid-area: main;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #ecf0f1;
 }
-
-#header{
-    grid-area: header;
-    height: 20vh;
-    background: rgb(173, 113, 230);
-}
-
 
 #sidebar{
     grid-area: sidebar;
-    height: 50vh;
-    background: blueviolet;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #3498db;
+    font-weight: bolder;
+}
+#section1{
+    grid-area: section1;
+    padding: 20px;
+    background-color: #e74;
+    font-size: 30px;
+    font-weight: bolder;
 }
 
-#content{
-    grid-area: content;
-    height: 50vh;
-    background: rgb(43, 226, 113);
+#section2{
+    grid-area: section2;
+    padding: 20px;
+    background-color: #9b59b6;
+    font-size: 30px;
+    font-weight: bolder;
 }
 
-#footer{
+#section3{
+    grid-area: section3;
+    padding: 20px;
+    background-color: #f39c23;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#section4{
+    grid-area: section4 ;
+    padding: 20px;
+    background-color: #555;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+footer{
     grid-area: footer;
-    background: rgb(66, 56, 75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #ccc;
+    font-size: 30px;
+    font-weight: bolder;
 }
 
+@media(max-width: 768px){
+    .page{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "navbar"
+        "main"
+        "sidebar"
+        "section1"
+        "section2"
+        "section3"
+        "section4"
+        "footer";
+    }
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 2;
+    }
+}
